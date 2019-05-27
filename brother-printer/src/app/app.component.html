@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="#">Brother Printer</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" routerLink="/scanToEmail">Scan To Email<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" >
+        <div class="input-group url">
+        <input type="text" class="form-control" placeholder="Enter URL" [(ngModel)]="URL">
+        <div class="input-group-append">
+          <button class="btn btn-success" type="submit" (click)="checkConnection()">Go</button>
+        </div>
+      </div>
+      </a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="col-lg-12">
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="error">
+      <button type="button" class="close" data-dismiss="alert" (click)="error = false">&times;</button>
+      <strong>Network Error!</strong> Server is not Available.
+    </div>
+    <div class="alert alert-success alert-dismissible fade show" *ngIf="success">
+      <button type="button" class="close" data-dismiss="alert" (click)="success = false">&times;</button>
+      <strong>Network Success!</strong> Server is Connected.
+    </div>
+<router-outlet></router-outlet>
+  </div>
+</div>

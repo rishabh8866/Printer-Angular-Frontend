@@ -1,0 +1,37 @@
+  <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label>Email</label>
+          <input class="form-control" id="Destination" name="Destination" [(ngModel)]="scanToEmailData.Destination" type="email"/>
+        </div>
+        <div class="form-group">
+          <label>ScanTray</label>
+          <select [(ngModel)]="scanToEmailData.ScanTray" class="form-control" >
+            <option *ngFor="let option of scanTrayList; index as i">{{option}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>ColorMode</label>
+          <select [(ngModel)]="scanToEmailData.ColorMode" class="form-control" >
+            <option *ngFor="let option of colorModeList; index as i">{{option}}</option>
+          </select>
+         </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label>Resolution</label>
+          <select [(ngModel)]="scanToEmailData.Resolution" class="form-control" >
+            <option *ngFor="let option of resolutionList; index as i">{{option}}</option>
+          </select>
+         </div>
+        <div class="form-group">
+          <label>FileType</label>
+          <select [(ngModel)]="scanToEmailData.FileType" class="form-control" >
+            <option *ngFor="let option of fileTypeList; index as i">{{option}}</option>
+          </select>
+         </div>
+        <div class="form-group">
+          <button class="btn btn-outline-primary float-right" (click)="send()">{{scanToEmailData.Destination === '' ?  'Scan' : 'Scan To Email'}}</button>
+        </div>
+      </div>
+  </div>
