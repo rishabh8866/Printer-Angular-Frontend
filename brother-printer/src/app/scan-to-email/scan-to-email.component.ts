@@ -22,6 +22,8 @@ public fileTypeList = ['PDF', 'JPEG'];
 public isMultiple = false;
 public multiEmail = [];
 public email = '';
+public password = '';
+public noOfEmial = 1;
   constructor(private http: HttpService) { }
 
   send(multiEmail) {
@@ -37,7 +39,7 @@ public email = '';
       });
     } else {
       let data = {
-        Destination: this.multiEmail,
+        Destination: this.multiEmail.filter(function(e){return e}),
         ScanTray: this.scanToEmailData.ScanTray,
         ColorMode: this.scanToEmailData.ColorMode,
         Resolution: this.scanToEmailData.Resolution,
@@ -58,6 +60,10 @@ public email = '';
   addEmail() {
     this.multiEmail.push(this.email);
     this.email = '';
+  }
+
+  numberReturn(length){
+    return Array.from({length: length}, (v, k) => k + 1);
   }
 
 }
