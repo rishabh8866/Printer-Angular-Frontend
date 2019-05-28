@@ -68,7 +68,7 @@ First senario to scan with multiple options
             </div>
          </div>
         <div class="form-group">
-          <button class="btn btn-outline-primary float-right" (click)="send()">{{scanToEmailData.Destination === '' ?  'Scan' : 'Scan To Email'}}</button>
+          <button class="btn btn-outline-primary float-right" (click)="send(false)">{{scanToEmailData.Destination === '' ?  'Scan' : 'Scan To Email'}}</button>
         </div>
       </div>
       <div class="col-sm-4">
@@ -97,7 +97,7 @@ Second senario to add multiple checkbox
                 <label>Selection 1:</label>
               </div>
               <div class="col-sm-5">
-                <input class="form-control" id="Destination" name="Destination" [(ngModel)]="scanToEmailData.Destination" type="email1"/>
+                <input class="form-control" name="Destination" [(ngModel)]="multiEmail[0]" type="email"/>
               </div>
             </div>
         </div>
@@ -107,7 +107,7 @@ Second senario to add multiple checkbox
                 <label>Selection 2:</label>
               </div>
               <div class="col-sm-5">
-                <input class="form-control" id="Destination" name="Destination" [(ngModel)]="scanToEmailData.Destination" type="email2"/>
+                <input class="form-control" name="Destination" [(ngModel)]="multiEmail[1]" type="email"/>
               </div>
             </div>
         </div>
@@ -117,7 +117,7 @@ Second senario to add multiple checkbox
                 <label>Selection 3:</label>
               </div>
               <div class="col-sm-5">
-                <input class="form-control" id="Destination" name="Destination" [(ngModel)]="scanToEmailData.Destination" type="email3"/>
+                <input class="form-control" name="Destination" [(ngModel)]="multiEmail[2]" type="email"/>
               </div>
             </div>
         </div>
@@ -127,7 +127,7 @@ Second senario to add multiple checkbox
                 <label>Selection 4:</label>
               </div>
               <div class="col-sm-5">
-                <input class="form-control" id="Destination" name="Destination" [(ngModel)]="scanToEmailData.Destination" type="email14"/>
+                <input class="form-control" name="Destination" [(ngModel)]="multiEmail[3]" type="email"/>
               </div>
             </div>
         </div>
@@ -137,12 +137,12 @@ Second senario to add multiple checkbox
                 <label>Selection 5:</label>
               </div>
               <div class="col-sm-5">
-                <input class="form-control" id="Destination" name="Destination" [(ngModel)]="scanToEmailData.Destination" type="email5"/>
+                <input class="form-control" name="Destination" [(ngModel)]="multiEmail[4]" type="email"/>
               </div>
             </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-outline-primary float-right" (click)="send()">{{scanToEmailData.Destination === '' ?  'Scan' : 'Scan To Email'}}</button>
+          <button class="btn btn-outline-primary float-right" (click)="send(true)">Scan To Email</button>
         </div>
       </div>
       <div class="col-sm-4">
