@@ -24,8 +24,8 @@ public multiEmail = [];
 public email = '';
   constructor(private http: HttpService) { }
 
-  send() {
-    if(!this.multiEmail) {
+  send(multiEmail) {
+    if(!multiEmail) {
       this.http.post('/file/commandxml/add', {"ScanToEmail": this.scanToEmailData}).subscribe(() => {
         this.scanToEmailData = {
           Destination: "",
