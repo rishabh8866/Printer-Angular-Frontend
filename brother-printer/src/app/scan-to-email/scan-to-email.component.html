@@ -1,109 +1,174 @@
+
+<!--
+*********************************************
+First senario to scan with multiple options
+*********************************************
+-->
+
 <h3 style="text-align: center;"><strong>Scan to Email&nbsp;</strong></h3>
-<hr/>
-<p>&nbsp;</p>
-<div class="row">
-  <div class="col-lg-6">
-    <div class="form-group" *ngIf="!isMultiple">
-      <label>Email</label>
-      <input class="form-control" id="Destination" name="Destination" [(ngModel)]="scanToEmailData.Destination"
-             type="email"/>
-    </div>
-    <div class="form-group">
-      <label>ScanTray</label>
-      <select [(ngModel)]="scanToEmailData.ScanTray" class="form-control">
-        <option *ngFor="let option of scanTrayList; index as i">{{option}}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>ColorMode</label>
-      <select [(ngModel)]="scanToEmailData.ColorMode" class="form-control">
-        <option *ngFor="let option of colorModeList; index as i">{{option}}</option>
-      </select>
-    </div>
+<hr />
+<p>&nbsp;</p>  <div class="row">
+      <div class="col-sm-8">
+        <div class="form-group">
+            <div class="row">
+              <div class="col-sm-4">
+                <label>Email:</label>
+              </div>
+              <div class="col-sm-8">
+                <input class="form-control" id="Destination" name="Destination" [(ngModel)]="scanToEmailData.Destination" type="email"/>
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4">          
+                  <label>ScanTray</label>
+                </div>
+                <div class="col-sm-8">
+                  <select [(ngModel)]="scanToEmailData.ScanTray" class="form-control" >
+                    <option *ngFor="let option of scanTrayList; index as i">{{option}}</option>
+                  </select>
+                </div>
+              </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4">
+                  <label>ColorMode</label>
+                </div>
+                <div class="col-sm-8">
+                  <select [(ngModel)]="scanToEmailData.ColorMode" class="form-control" >
+                    <option *ngFor="let option of colorModeList; index as i">{{option}}</option>
+                  </select>
+                </div>
+            </div>
+         </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4">
+                  <label>Resolution</label>
+                </div>
+                <div class="col-sm-8">
+                  <select [(ngModel)]="scanToEmailData.Resolution" class="form-control" >
+                    <option *ngFor="let option of resolutionList; index as i">{{option}}</option>
+                  </select>
+                </div>
+            </div>
+         </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4">
+                  <label>FileType</label>
+                </div>
+                <div class="col-sm-8">
+                  <select [(ngModel)]="scanToEmailData.FileType" class="form-control" >
+                    <option *ngFor="let option of fileTypeList; index as i">{{option}}</option>
+                  </select>
+                </div>
+            </div>
+         </div>
+        <div class="form-group">
+          <button class="btn btn-outline-primary float-right" (click)="send()">{{scanToEmailData.Destination === '' ?  'Scan' : 'Scan To Email'}}</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label>Response</label>
+        </div>
+      </div>
   </div>
-  <div class="col-lg-6">
-    <div class="form-group">
-      <label>Resolution</label>
-      <select [(ngModel)]="scanToEmailData.Resolution" class="form-control">
-        <option *ngFor="let option of resolutionList; index as i">{{option}}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>FileType</label>
-      <select [(ngModel)]="scanToEmailData.FileType" class="form-control">
-        <option *ngFor="let option of fileTypeList; index as i">{{option}}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <button class="btn btn-outline-primary float-right"
-              (click)="send(false)">{{scanToEmailData.Destination === '' ? 'Scan' : 'Scan To Email'}}</button>
-    </div>
+
+
+  
+<!--
+***************************************
+Second senario to add multiple checkbox
+***************************************
+-->
+
+<p>&nbsp;</p><hr />
+  <h3 style="text-align: center;"><strong>Multiple Selection&nbsp;</strong></h3>
+<hr />
+<p>&nbsp;</p>  <div class="row">
+      <div class="col-sm-7">
+        <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2">
+                <label>Selection 1:</label>
+              </div>
+              <div class="col-sm-5">
+                <input class="form-control" id="Destination" name="Destination" [(ngModel)]="scanToEmailData.Destination" type="email1"/>
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2">
+                <label>Selection 2:</label>
+              </div>
+              <div class="col-sm-5">
+                <input class="form-control" id="Destination" name="Destination" [(ngModel)]="scanToEmailData.Destination" type="email2"/>
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2">
+                <label>Selection 3:</label>
+              </div>
+              <div class="col-sm-5">
+                <input class="form-control" id="Destination" name="Destination" [(ngModel)]="scanToEmailData.Destination" type="email3"/>
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2">
+                <label>Selection 4:</label>
+              </div>
+              <div class="col-sm-5">
+                <input class="form-control" id="Destination" name="Destination" [(ngModel)]="scanToEmailData.Destination" type="email14"/>
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2">
+                <label>Selection 5:</label>
+              </div>
+              <div class="col-sm-5">
+                <input class="form-control" id="Destination" name="Destination" [(ngModel)]="scanToEmailData.Destination" type="email5"/>
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-outline-primary float-right" (click)="send()">{{scanToEmailData.Destination === '' ?  'Scan' : 'Scan To Email'}}</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label>Response</label>
+        </div>
+      </div>
   </div>
-</div>
-<p>&nbsp;</p>
-<hr/>
-<h3 style="text-align: center;"><strong>Multiple section&nbsp;</strong></h3>
-<hr/>
-<p>&nbsp;</p>
-<div class="row">
-  <div class="col-lg-7">
-    <div class="form-group">
-      <div class="row">
-        <div class="col-sm-2">
-          <label>Email 1:</label>
-        </div>
-        <div class="col-sm-5">
-          <input class="form-control" name="Destination" [(ngModel)]="multiEmail[0]" type="email"/>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="row">
-        <div class="col-sm-2">
-          <label>Email 2:</label>
-        </div>
-        <div class="col-sm-5">
-          <input class="form-control" name="Destination" [(ngModel)]="multiEmail[1]" type="email"/>
+
+  
+
+  
+<!--
+*************************************
+Third senario to ask for password
+*************************************
+-->
+
+<p>&nbsp;</p><hr />
+<h3 style="text-align: center;"><strong>Password Protection&nbsp;</strong></h3>
+<hr />
+<p>&nbsp;</p>  <div class="row">
+    <div class="col-sm-7">
+      <div class="form-group">
+        <div class="form-group">
+          <button class="btn btn-outline-primary float-right" (click)="send()">{{scanToEmailData.Destination === '' ?  'Scan' : 'Scan To Email'}}</button>
         </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="row">
-        <div class="col-sm-2">
-          <label>Email 3:</label>
-        </div>
-        <div class="col-sm-5">
-          <input class="form-control" name="Destination" [(ngModel)]="multiEmail[2]" type="email"/>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="row">
-        <div class="col-sm-2">
-          <label>Email 4:</label>
-        </div>
-        <div class="col-sm-5">
-          <input class="form-control" name="Destination" [(ngModel)]="multiEmail[3]" type="email"/>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="row">
-        <div class="col-sm-2">
-          <label>Email 5:</label>
-        </div>
-        <div class="col-sm-5">
-          <input class="form-control" name="Destination" [(ngModel)]="multiEmail[4]" type="email"/>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <button class="btn btn-outline-primary float-right" (click)="send(true)">Scan To Email</button>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="form-group">
-      <label>Response</label>
-    </div>
-  </div>
 </div>
