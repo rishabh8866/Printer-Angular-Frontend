@@ -19,22 +19,45 @@ public scanTrayList = ['ADF'];
 public colorModeList = ['Color', 'Gray', 'Mono'];
 public resolutionList = ['Normal', 'Low', 'High'];
 public fileTypeList = ['PDF', 'JPEG'];
+public isMultiple = false;
+public multiEmail = [];
+public email = '';
   constructor(private http: HttpService) { }
 
   send() {
-    this.http.post( '/file/commandxml/add', {"ScanToEmail": this.scanToEmailData}).subscribe(() => {
-      this.scanToEmailData = {
-        Destination: "",
-        ScanTray: "ADF",
-        ColorMode: "Color",
-        Resolution: "Normal",
-        FileType: "PDF"
+    if(!this.multiEmail) {
+      this.http.post('/file/commandxml/add', {"ScanToEmail": this.scanToEmailData}).subscribe(() => {
+        this.scanToEmailData = {
+          Destination: "",
+          ScanTray: "ADF",
+          ColorMode: "Color",
+          Resolution: "Normal",
+          FileType: "PDF"
+        }
+      });
+    } else {
+      let data = {
+        Destination: this.multiEmail,
+        ScanTray: this.scanToEmailData.ScanTray,
+        ColorMode: this.scanToEmailData.ColorMode,
+        Resolution: this.scanToEmailData.Resolution,
+        FileType: this.scanToEmailData.FileType
       }
-    });
+      this.http.post('/file/commandxml/add', {"ScanToEmail": data}).subscribe(() => {
+        this.scanToEmailData = {
+          Destination: "",
+          ScanTray: "ADF",
+          ColorMode: "Color",
+          Resolution: "Normal",
+          FileType: "PDF"
+        }
+      });
+    }
   }
 
-  checkHost() {
-
+  addEmail() {
+    this.multiEmail.push(this.email);
+    this.email = '';
   }
 
 }
