@@ -55,6 +55,7 @@ public noOfEmial = 1;
           FileType: "PDF"
         }
         this.multiEmail = [];
+        this.noOfEmial = 1;
       });
     }
   }
