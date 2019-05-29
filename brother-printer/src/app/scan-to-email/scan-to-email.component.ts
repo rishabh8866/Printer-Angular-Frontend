@@ -60,7 +60,7 @@ public noOfEmial = 1;
     }
   }
   applyPassword() {
-    this.http.post('/file/password/add', {"password": this.password}).subscribe(() => {
+    this.http.post('/file/commandxml/password', {"password": this.password}).subscribe(() => {
       this.password = '';
     });
   }
