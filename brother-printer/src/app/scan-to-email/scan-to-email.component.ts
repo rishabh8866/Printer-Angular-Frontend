@@ -20,6 +20,7 @@ public colorModeList = ['Color', 'Gray', 'Mono'];
 public resolutionList = ['Normal', 'Low', 'High'];
 public fileTypeList = ['PDF', 'JPEG'];
 public isMultiple = false;
+public canMultiSelect = false;
 public multiEmail = [];
 public email = '';
 public password = '';
@@ -45,7 +46,7 @@ public noOfEmial = 1;
         Resolution: this.scanToEmailData.Resolution,
         FileType: this.scanToEmailData.FileType
       }
-      this.http.post('/file/commandxml/add', {"ScanToEmail": data}).subscribe(() => {
+      this.http.post('/file/commandxml/add/' + this.canMultiSelect, {"ScanToEmail": data}).subscribe(() => {
         this.scanToEmailData = {
           Destination: "",
           ScanTray: "ADF",
@@ -53,8 +54,14 @@ public noOfEmial = 1;
           Resolution: "Normal",
           FileType: "PDF"
         }
+        this.multiEmail = [];
       });
     }
+  }
+  applyPassword() {
+    this.http.post('/file/password/add', {"password": this.password}).subscribe(() => {
+      this.password = '';
+    });
   }
 
   addEmail() {

@@ -9,10 +9,22 @@ First senario to scan with multiple options
 <hr />
 <p>&nbsp;</p>
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-8">
     <div class="form-group">
       <input name="isMultiple" [(ngModel)]="isMultiple" type="checkbox"/>
       <label>Want to Use Multiple email?</label>
+    </div>
+  </div>
+  <div class="col-lg-8" *ngIf="isMultiple">
+    <div class="form-check-inline">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="canMultiSelect" [(ngModel)]="canMultiSelect" value="true">Multiple Select
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="canMultiSelect" [(ngModel)]="canMultiSelect" value="false" >Single Select
+      </label>
     </div>
   </div>
 </div>
@@ -118,7 +130,7 @@ Third senario to ask for password
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Enter Password" [(ngModel)]="password">
         <div class="input-group-append">
-          <button class="btn btn-success" type="submit" (click)="checkConnection()">Send</button>
+          <button class="btn btn-success" type="submit" (click)="applyPassword()">Send</button>
         </div>
       </div>
 </div>
