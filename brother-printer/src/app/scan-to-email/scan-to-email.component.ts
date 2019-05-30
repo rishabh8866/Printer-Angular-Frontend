@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {HttpService} from "../service/http.service";
+import {Socket} from "ngx-socket-io";
 
 @Component({
   selector: 'app-scan-to-email',
@@ -24,8 +25,14 @@ public canMultiSelect = false;
 public multiEmail = [];
 public email = '';
 public password = '';
+public result = '';
 public noOfEmial = 1;
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, private socket: Socket) {
+    this.socket.on('getXml', (data) => {
+      console.log(data);
+      this.result = data;
+    });
+  }
 
   send(multiEmail) {
     if(!multiEmail) {
@@ -55,6 +62,7 @@ public noOfEmial = 1;
           FileType: "PDF"
         }
         this.multiEmail = [];
+        this.noOfEmial = 1;
       });
     }
   }

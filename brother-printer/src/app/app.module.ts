@@ -7,6 +7,8 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ScanToEmailComponent } from './scan-to-email/scan-to-email.component';
 import {HttpService} from "./service/http.service";
+import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
+const config: SocketIoConfig = { url: 'http://localhost:8101', options: {} };
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import {HttpService} from "./service/http.service";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
