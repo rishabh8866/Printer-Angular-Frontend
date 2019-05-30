@@ -75,6 +75,7 @@ First senario to scan with multiple options
       <div class="col-sm-4">
         <div class="form-group">
           <label>Response</label>
+          <textarea class="form-control">{{result[1] | json}}</textarea>
         </div>
       </div>
   </div>
@@ -122,11 +123,12 @@ Second senario to add multiple checkbox
     <button class="btn btn-outline-primary float-right" (click)="send(true)">Scan To Email</button>
   </div>
 </div>
-  <div class="col-sm-4">
-    <div class="form-group">
-      <label>Response</label>
-    </div>
+<div class="col-sm-4">
+  <div class="form-group">
+    <label>Response</label>
+    <textarea class="form-control">{{result[2] | json}}</textarea>
   </div>
+</div>
 </div>
 <!--
 *************************************
@@ -143,6 +145,12 @@ Third senario to ask for password
         <input type="text" class="form-control" placeholder="Enter Password" [(ngModel)]="password">
         <div class="input-group-append">
           <button class="btn btn-success" type="submit" (click)="applyPassword()">Send</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label>Response</label>
+          <textarea class="form-control">{{result[3]}}</textarea>
         </div>
       </div>
 </div>
