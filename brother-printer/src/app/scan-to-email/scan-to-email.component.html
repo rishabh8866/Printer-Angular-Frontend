@@ -9,28 +9,8 @@ First senario to scan with multiple options
 <hr />
 <p>&nbsp;</p>
 <div class="row">
-  <div class="col-lg-8">
-    <div class="form-group">
-      <input name="isMultiple" [(ngModel)]="isMultiple" type="checkbox"/>
-      <label>Want to Use Multiple email?</label>
-    </div>
-  </div>
-  <div class="col-lg-8" *ngIf="isMultiple">
-    <div class="form-check-inline">
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="canMultiSelect" [(ngModel)]="canMultiSelect" value="true">Multiple Select
-      </label>
-    </div>
-    <div class="form-check-inline">
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="canMultiSelect" [(ngModel)]="canMultiSelect" value="false" >Single Select
-      </label>
-    </div>
-  </div>
-</div>
-<div class="row">
       <div class="col-sm-8">
-        <div class="form-group" *ngIf="!isMultiple">
+        <div class="form-group">
             <div class="row">
               <div class="col-sm-4">
                 <label>Email:</label>
@@ -40,24 +20,9 @@ First senario to scan with multiple options
               </div>
             </div>
         </div>
-        <div *ngIf="isMultiple">
-          <div class="form-group" *ngFor="let number of numberReturn(noOfEmial)">
-            <div class="row">
-              <div class="col-sm-4">
-                <label>Selection {{number}}:</label>
-              </div>
-              <div class="col-sm-8">
-                <input class="form-control" name="Destination" [(ngModel)]="multiEmail[number]" type="email"/>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-outline-primary " (click)="noOfEmial = noOfEmial + 1">Add Email</button>
-          </div>
-        </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-sm-4">          
+                <div class="col-sm-4">
                   <label>ScanTray</label>
                 </div>
                 <div class="col-sm-8">
@@ -110,13 +75,61 @@ First senario to scan with multiple options
       <div class="col-sm-4">
         <div class="form-group">
           <label>Response</label>
-          <textarea class="form-control">{{result}}</textarea>
+          <pre>{{result[1] | json}}</pre>
         </div>
       </div>
   </div>
 
 
-  
+
+<!--
+***************************************
+Second senario to add multiple checkbox
+***************************************
+-->
+
+<p>&nbsp;</p><hr />
+<h3 class="text-center"><strong>Multiple Selection&nbsp;</strong></h3>
+<hr />
+<p>&nbsp;</p>
+<div class="row">
+  <div class="col-lg-8">
+    <div class="form-check-inline">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="canMultiSelect" [(ngModel)]="canMultiSelect" value="true">Multiple Select
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="canMultiSelect" [(ngModel)]="canMultiSelect" value="false" >Single Select
+      </label>
+    </div>
+  </div>
+<div class="col-lg-8">
+  <div class="form-group" *ngFor="let number of numberReturn(noOfEmial)">
+    <div class="row">
+      <div class="col-sm-4">
+        <label>Selection {{number}}:</label>
+      </div>
+      <div class="col-sm-8">
+        <input class="form-control" name="Destination" [(ngModel)]="multiEmail[number]" type="text"/>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-outline-primary " (click)="noOfEmial = noOfEmial + 1">Add Section</button>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-outline-primary float-right" (click)="send(true)">Send</button>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+    <label>Response</label>
+    <pre>{{result[2] | json}}</pre>
+  </div>
+</div>
+</div>
 <!--
 *************************************
 Third senario to ask for password
@@ -126,12 +139,18 @@ Third senario to ask for password
 <p>&nbsp;</p><hr />
 <h3 class="text-center"><strong>Password Protection&nbsp;</strong></h3>
 <hr />
-<p>&nbsp;</p>  <div class="row justify-content-center align-items-center">
+<p>&nbsp;</p>  <div class="row">
     <div class="col-sm-7">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Enter Password" [(ngModel)]="password">
         <div class="input-group-append">
           <button class="btn btn-success" type="submit" (click)="applyPassword()">Send</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label>Response</label>
+          <pre>{{result[3] | json}}</pre>
         </div>
       </div>
 </div>
