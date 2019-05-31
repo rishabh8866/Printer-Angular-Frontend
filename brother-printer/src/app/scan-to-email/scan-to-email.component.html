@@ -75,7 +75,7 @@ First senario to scan with multiple options
       <div class="col-sm-4">
         <div class="form-group">
           <label>Response</label>
-          <textarea class="form-control">{{result[1] | json}}</textarea>
+          <pre>{{result[1] | json}}</pre>
         </div>
       </div>
   </div>
@@ -126,7 +126,7 @@ Second senario to add multiple checkbox
 <div class="col-sm-4">
   <div class="form-group">
     <label>Response</label>
-    <textarea class="form-control">{{result[2] | json}}</textarea>
+    <pre>{{result[2] | json}}</pre>
   </div>
 </div>
 </div>
@@ -139,7 +139,7 @@ Third senario to ask for password
 <p>&nbsp;</p><hr />
 <h3 class="text-center"><strong>Password Protection&nbsp;</strong></h3>
 <hr />
-<p>&nbsp;</p>  <div class="row justify-content-center align-items-center">
+<p>&nbsp;</p>  <div class="row">
     <div class="col-sm-7">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Enter Password" [(ngModel)]="password">
@@ -150,7 +150,7 @@ Third senario to ask for password
       <div class="col-sm-4">
         <div class="form-group">
           <label>Response</label>
-          <textarea class="form-control">{{result[3]}}</textarea>
+          <pre>{{result[3] | json}}</pre>
         </div>
       </div>
 </div>
