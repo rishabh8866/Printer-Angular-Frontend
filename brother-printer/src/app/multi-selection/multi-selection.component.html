@@ -1,0 +1,45 @@
+
+
+<!--
+***************************************
+Second senario to add multiple checkbox
+***************************************
+-->
+
+<p>&nbsp;</p><hr />
+<h3 class="text-center"><strong>Multiple Selection&nbsp;</strong></h3>
+<hr />
+<p>&nbsp;</p>
+<div class="row">
+  <div class="col-lg-8">
+    <div class="form-check-inline">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="canMultiSelect" [(ngModel)]="canMultiSelect" value="true">Multiple Select
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="canMultiSelect" [(ngModel)]="canMultiSelect" value="false" >Single Select
+      </label>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="form-group" *ngFor="let number of numberReturn(noOfEmial)">
+      <div class="row">
+        <div class="col-sm-4">
+          <label>Selection {{number}}:</label>
+        </div>
+        <div class="col-sm-8">
+          <input class="form-control" name="Destination" [(ngModel)]="multiEmail[number]" type="text"/>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-outline-primary " (click)="noOfEmial = noOfEmial + 1">Add Section</button>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-outline-primary float-right" (click)="send()">Send</button>
+    </div>
+  </div>
+</div>
+<app-request-response [request]="multiSelectionRequest" [response]="result"></app-request-response>
