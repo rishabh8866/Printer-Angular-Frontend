@@ -26,13 +26,7 @@ public multiEmail = [];
 public email = '';
 public password = '';
 public noOfEmial = 1;
-  public result = {
-    Destination: "",
-    ScanTray: "ADF",
-    ColorMode: "Color",
-    Resolution: "Normal",
-    FileType: "PDF"
-  };
+  public result = '';
   constructor(private http: HttpService, private socket: Socket) {
     this.socket.on('getXml', (data) => {
       console.log(data);
@@ -42,13 +36,13 @@ public noOfEmial = 1;
   send(multiEmail) {
     if(!multiEmail) {
       this.http.post('/file/commandxml/add', {"ScanToEmail": this.scanToEmailData}).subscribe(() => {
-        this.scanToEmailData = {
-          Destination: "",
-          ScanTray: "ADF",
-          ColorMode: "Color",
-          Resolution: "Normal",
-          FileType: "PDF"
-        }
+        // this.scanToEmailData = {
+        //   Destination: "",
+        //   ScanTray: "ADF",
+        //   ColorMode: "Color",
+        //   Resolution: "Normal",
+        //   FileType: "PDF"
+        // }
       });
     } else {
       let data = {

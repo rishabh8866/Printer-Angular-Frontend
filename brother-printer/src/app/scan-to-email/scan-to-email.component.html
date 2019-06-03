@@ -72,8 +72,10 @@ First senario to scan with multiple options
           <button class="btn btn-outline-primary float-right" (click)="send(isMultiple)">{{scanToEmailData.Destination === '' ?  'Scan' : 'Scan To Email'}}</button>
         </div>
       </div>
+  <app-request-response [request]="scanToEmailData" [response]="result"></app-request-response>
   </div>
-<app-request-response [request]="scanToEmailData" [response]="result"></app-request-response>
+<app-multi-selection></app-multi-selection>
+<app-password></app-password>
 
 
 <!--&lt;!&ndash;-->
