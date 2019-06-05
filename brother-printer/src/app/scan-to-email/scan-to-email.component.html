@@ -77,7 +77,30 @@ First senario to scan with multiple options
 <app-multi-selection></app-multi-selection>
 <app-password></app-password>
 
+<p>&nbsp;</p><hr />
+<hr />
+<p>&nbsp;</p>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Enter Message" [(ngModel)]="message">
+      <div class="input-group-append">
+        <button class="btn btn-success" type="submit" (click)="applyMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+  <app-request-response [request]="messageRequest" [response]="''"></app-request-response>
+</div>
 
+<p>&nbsp;</p><hr />
+<hr />
+<p>&nbsp;</p>
+<div class="row">
+    <div class="col-sm-8">
+      <button class="btn btn-success" type="submit" (click)="close()">Close Connection</button>
+    </div>
+    <app-request-response [request]="closeRequest" [response]="''"></app-request-response>
+  </div>
 <!--&lt;!&ndash;-->
 <!--***************************************-->
 <!--Second senario to add multiple checkbox-->
