@@ -72,26 +72,41 @@ First senario to scan with multiple options
           <button class="btn btn-outline-primary float-right" (click)="send(isMultiple)">{{scanToEmailData.Destination === '' ?  'Scan' : 'Scan To Email'}}</button>
         </div>
       </div>
-<<<<<<< HEAD
-=======
-      <div class="col-sm-4">
-        <div class="form-group">
-          <label>Response</label>
-          <pre>{{result[1] | json}}</pre>
-        </div>
-      </div>
->>>>>>> 5557f1c2aa33c202c447440927d91926e3623754
+  <app-request-response [request]="scanToEmailData" [response]="result"></app-request-response>
   </div>
-<app-request-response [request]="scanToEmailData" [response]="result"></app-request-response>
+<app-multi-selection></app-multi-selection>
+<app-password></app-password>
 
+<p>&nbsp;</p><hr />
+<hr />
+<p>&nbsp;</p>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Enter Message" [(ngModel)]="message">
+      <div class="input-group-append">
+        <button class="btn btn-success" type="submit" (click)="applyMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+  <app-request-response [request]="messageRequest" [response]="''"></app-request-response>
+</div>
 
+<p>&nbsp;</p><hr />
+<hr />
+<p>&nbsp;</p>
+<div class="row">
+    <div class="col-sm-8">
+      <button class="btn btn-success" type="submit" (click)="close()">Close Connection</button>
+    </div>
+    <app-request-response [request]="closeRequest" [response]="''"></app-request-response>
+  </div>
 <!--&lt;!&ndash;-->
 <!--***************************************-->
 <!--Second senario to add multiple checkbox-->
 <!--***************************************-->
 <!--&ndash;&gt;-->
 
-<<<<<<< HEAD
 <!--<p>&nbsp;</p><hr />-->
 <!--<h3 class="text-center"><strong>Multiple Selection&nbsp;</strong></h3>-->
 <!--<hr />-->
@@ -158,77 +173,3 @@ First senario to scan with multiple options
         <!--</div>-->
       <!--</div>-->
 <!--</div>-->
-=======
-<!--
-***************************************
-Second senario to add multiple checkbox
-***************************************
--->
-
-<p>&nbsp;</p><hr />
-<h3 class="text-center"><strong>Multiple Selection&nbsp;</strong></h3>
-<hr />
-<p>&nbsp;</p>
-<div class="row">
-  <div class="col-lg-8">
-    <div class="form-check-inline">
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="canMultiSelect" [(ngModel)]="canMultiSelect" value="true">Multiple Select
-      </label>
-    </div>
-    <div class="form-check-inline">
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="canMultiSelect" [(ngModel)]="canMultiSelect" value="false" >Single Select
-      </label>
-    </div>
-  </div>
-<div class="col-lg-8">
-  <div class="form-group" *ngFor="let number of numberReturn(noOfEmial)">
-    <div class="row">
-      <div class="col-sm-4">
-        <label>Selection {{number}}:</label>
-      </div>
-      <div class="col-sm-8">
-        <input class="form-control" name="Destination" [(ngModel)]="multiEmail[number]" type="text"/>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <button class="btn btn-outline-primary " (click)="noOfEmial = noOfEmial + 1">Add Section</button>
-  </div>
-  <div class="form-group">
-    <button class="btn btn-outline-primary float-right" (click)="send(true)">Send</button>
-  </div>
-</div>
-<div class="col-sm-4">
-  <div class="form-group">
-    <label>Response</label>
-    <pre>{{result[2] | json}}</pre>
-  </div>
-</div>
-</div>
-<!--
-*************************************
-Third senario to ask for password
-*************************************
--->
-
-<p>&nbsp;</p><hr />
-<h3 class="text-center"><strong>Password Protection&nbsp;</strong></h3>
-<hr />
-<p>&nbsp;</p>  <div class="row">
-    <div class="col-sm-7">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Enter Password" [(ngModel)]="password">
-        <div class="input-group-append">
-          <button class="btn btn-success" type="submit" (click)="applyPassword()">Send</button>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="form-group">
-          <label>Response</label>
-          <pre>{{result[3] | json}}</pre>
-        </div>
-      </div>
-</div>
->>>>>>> 5557f1c2aa33c202c447440927d91926e3623754
