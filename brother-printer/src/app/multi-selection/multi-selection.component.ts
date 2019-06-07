@@ -27,7 +27,7 @@ export class MultiSelectionComponent{
   send() {
     this.multiSelectionRequest.SelectionList.Selection = this.multiEmail.filter(function(e){return e});
     this.multiSelectionRequest.SelectionList.canMultiSelect = this.canMultiSelect;
-      this.http.post('/file/commandxml/createMulti/' + this.canMultiSelect,
+      this.http.post('/file/commandxml/add',
         this.multiSelectionRequest).subscribe(() => {
         this.multiEmail = [];
         this.noOfEmial = 1;

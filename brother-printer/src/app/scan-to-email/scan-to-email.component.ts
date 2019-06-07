@@ -54,7 +54,7 @@ public noOfEmial = 1;
         Resolution: this.scanToEmailData.Resolution,
         FileType: this.scanToEmailData.FileType
       };
-      this.http.post('/file/commandxml/createMulti/' + this.canMultiSelect, {'multi-select': data.Destination}).subscribe(() => {
+      this.http.post('/file/commandxml/add/', {ScanToEmail: data}).subscribe(() => {
         this.scanToEmailData = {
           Destination: '',
           ScanTray: 'ADF',
@@ -68,7 +68,7 @@ public noOfEmial = 1;
     }
   }
   applyPassword() {
-    this.http.post('/file/commandxml/password', {password: this.password}).subscribe(() => {
+    this.http.post('/file/commandxml/add', {password: this.password}).subscribe(() => {
       this.password = '';
     });
   }
@@ -84,14 +84,14 @@ public noOfEmial = 1;
 
   public applyMessage() {
     this.messageRequest.message = this.message;
-    this.http.post('/file/commandxml/message',  this.messageRequest).subscribe(() => {
+    this.http.post('/file/commandxml/add',  this.messageRequest).subscribe(() => {
       this.message = '';
     });
   }
 
   public close() {
     this.closeRequest.close = true;
-    this.http.post('/file/commandxml/close', this.closeRequest).subscribe(() => {
+    this.http.post('/file/commandxml/add', this.closeRequest).subscribe(() => {
     });
   }
 }

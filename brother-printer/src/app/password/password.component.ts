@@ -23,7 +23,7 @@ export class PasswordComponent {
 
   applyPassword() {
     this.passwordRequest.PasswordRequest.PasswordToCheck = this.password;
-    this.http.post('/file/commandxml/password', this.passwordRequest).subscribe(() => {
+    this.http.post('/file/commandxml/add', this.passwordRequest).subscribe(() => {
       this.password = '';
     });
   }
