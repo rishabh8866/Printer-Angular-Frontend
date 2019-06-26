@@ -15,15 +15,15 @@ export class PasswordComponent {
     } };
 
   constructor(private http: HttpService, private socket: Socket) {
-    this.socket.on('getXml', (data) => {
+    this.socket.on('getJson', (data) => {
       console.log(data);
-      this.result = data.s === 3 ? data.data : this.result;
+      this.result = data.s === 'Password' ? data.data : this.result;
     });
   }
 
   applyPassword() {
     this.passwordRequest.PasswordRequest.PasswordToCheck = this.password;
-    this.http.post('/file/commandxml/add', this.passwordRequest).subscribe(() => {
+    this.http.post('/file/commandjson/add', this.passwordRequest).subscribe(() => {
       this.password = '';
     });
   }
