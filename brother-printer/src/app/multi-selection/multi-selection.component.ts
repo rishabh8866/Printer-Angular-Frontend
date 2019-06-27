@@ -18,16 +18,16 @@ export class MultiSelectionComponent{
       }};
 
   constructor(private http: HttpService, private socket: Socket) {
-    this.socket.on('getXml', (data) => {
+    this.socket.on('getJson', (data) => {
       console.log(data);
-      this.result = data.s === 2 ? data.data : this.result;
+      this.result = data.s === 'MultiSelection' ? data.data : this.result;
     });
   }
 
   send() {
     this.multiSelectionRequest.SelectionList.Selection = this.multiEmail.filter(function(e){return e});
     this.multiSelectionRequest.SelectionList.canMultiSelect = this.canMultiSelect;
-      this.http.post('/file/commandxml/createMulti/' + this.canMultiSelect,
+    this.http.post('/file/commandjson/add',
         this.multiSelectionRequest).subscribe(() => {
         this.multiEmail = [];
         this.noOfEmial = 1;

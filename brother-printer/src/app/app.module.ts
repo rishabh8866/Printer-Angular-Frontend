@@ -11,6 +11,9 @@ import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
 import { MultiSelectionComponent } from './multi-selection/multi-selection.component';
 import { PasswordComponent } from './password/password.component';
 import { RequestResponseComponent } from './request-response/request-response.component';
+import { ScanToFtpComponent } from './scan-to-ftp/scan-to-ftp.component';
+import { PrintComponent } from './print/print.component';
+import { FileSelectDirective, FileUploadModule } from 'ng2-file-upload';
 const config: SocketIoConfig = { url: 'http://localhost:8101', options: {} };
 
 @NgModule({
@@ -19,14 +22,17 @@ const config: SocketIoConfig = { url: 'http://localhost:8101', options: {} };
     ScanToEmailComponent,
     MultiSelectionComponent,
     PasswordComponent,
-    RequestResponseComponent
+    RequestResponseComponent,
+    ScanToFtpComponent,
+    PrintComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    FileUploadModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
