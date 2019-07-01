@@ -3,17 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import { ScanToEmailComponent } from './scan-to-email/scan-to-email.component';
-import {HttpService} from "./service/http.service";
-import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
+import {HttpService} from './service/http.service';
+import {SocketIoConfig, SocketIoModule} from 'ngx-socket-io';
 import { MultiSelectionComponent } from './multi-selection/multi-selection.component';
 import { PasswordComponent } from './password/password.component';
 import { RequestResponseComponent } from './request-response/request-response.component';
 import { ScanToFtpComponent } from './scan-to-ftp/scan-to-ftp.component';
 import { PrintComponent } from './print/print.component';
 import { FileSelectDirective, FileUploadModule } from 'ng2-file-upload';
+import { ParamaterGroupComponent } from './paramater-group/paramater-group.component';
 const config: SocketIoConfig = { url: 'http://localhost:8101', options: {} };
 
 @NgModule({
@@ -25,6 +26,7 @@ const config: SocketIoConfig = { url: 'http://localhost:8101', options: {} };
     RequestResponseComponent,
     ScanToFtpComponent,
     PrintComponent,
+    ParamaterGroupComponent,
   ],
   imports: [
     BrowserModule,
