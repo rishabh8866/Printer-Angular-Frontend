@@ -25,21 +25,21 @@ export const JpgQuality = ['High', 'Normal', 'Low', 'Off'];
 export const scanToEmailDefault = {
   TxProfiles: {
     Smtp: {
-      Destination: '',
-      Subject: '',
-      MsgBody: '',
-      FileName: ''
+      Destination: 'rubingajera1@gmail.com',
+      Subject: 'Test Subject',
+      MsgBody: 'MSGBODY HERE',
+      FileName: 'Rubin'
     }
   },
   FileNameFixed: true,
-  ScanTray: '', 						// ScanTray
-  ColorMode: '', 						// ColorModeList
-  Resolution: '', 					// Resolution
-  DocSize: '', 						// DocSize
-  Density: '', 						// selectionList_1
-  Brightness: '', 					// selectionList_1
+  ScanTray: 'Auto', 						// ScanTray
+  ColorMode: 'Color', 						// ColorModeList
+  Resolution: 'Normal', 					// Resolution
+  DocSize: 'Auto', 						// DocSize
+  Density: 'Higher', 						// selectionList_1
+  Brightness: 'Normal', 					// selectionList_1
   JpgQuality: '', 					// selectionList_2
-  FileType: '',						// FileType
+  FileType: 'JPEG',						// FileType
   SPdfPassword: '',
   SinglePageFile: true,
   AdditionalAdfScan: true,
