@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpService} from '../service/http.service';
 import { Socket } from 'ngx-socket-io';
+import {DocSize} from "../constant";
 
 @Component({
   selector: 'app-scan-to-email',
@@ -13,12 +14,26 @@ public scanToEmailData = {
   ScanTray: 'ADF',
   ColorMode: 'Color',
   Resolution: 'Normal',
-  FileType: 'PDF'
+  FileType: 'PDF',
+  DocSize: 'Auto',
+  DuplexScanEnable: false,
+  NumSendPage: 1
 };
+public defaultScanToEmail = {
+  Destination: '',
+  ScanTray: 'ADF',
+  ColorMode: 'Color',
+  Resolution: 'Normal',
+  FileType: 'PDF',
+  DocSize: 'Auto',
+  DuplexScanEnable: false,
+  NumSendPage: 1
+}
 public scanTrayList = ['FB', 'ADF', 'Auto'];
 public colorModeList = ['Color', 'Gray', 'Mono', 'Auto'];
 public resolutionList = ['Normal', 'Low', 'High', '600', '400', '300', '200', '150', '100', '200x100', 'Auto'];
 public fileTypeList = ['PDF', 'JPEG', 'HighCompressedPDF', 'PDFA', 'SecurePDF', 'SignedPDF', 'XPS', 'TIFF'];
+public docSizeList = DocSize;
 public isMultiple = false;
 public canMultiSelect = false;
 public multiEmail = [];
@@ -52,16 +67,13 @@ public noOfEmial = 1;
         ScanTray: this.scanToEmailData.ScanTray,
         ColorMode: this.scanToEmailData.ColorMode,
         Resolution: this.scanToEmailData.Resolution,
-        FileType: this.scanToEmailData.FileType
+        FileType: this.scanToEmailData.FileType,
+        DocSize: this.scanToEmailData.DocSize,
+        DuplexScanEnable: this.scanToEmailData.DuplexScanEnable,
+        NumSendPage: this.scanToEmailData.NumSendPage,
       };
       this.http.post('/file/commandjson/add/', {ScanToEmail: data}).subscribe(() => {
-        this.scanToEmailData = {
-          Destination: '',
-          ScanTray: 'ADF',
-          ColorMode: 'Color',
-          Resolution: 'Normal',
-          FileType: 'PDF'
-        };
+        this.scanToEmailData = this.defaultScanToEmail;
         this.multiEmail = [];
         this.noOfEmial = 1;
       });
