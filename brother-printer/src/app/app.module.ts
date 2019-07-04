@@ -14,6 +14,7 @@ import { RequestResponseComponent } from './request-response/request-response.co
 import { ScanToFtpComponent } from './scan-to-ftp/scan-to-ftp.component';
 import { PrintComponent } from './print/print.component';
 import { FileSelectDirective, FileUploadModule } from 'ng2-file-upload';
+import { SendXmlComponent } from './send-xml/send-xml.component';
 const config: SocketIoConfig = { url: 'http://localhost:8101', options: {} };
 
 @NgModule({
@@ -25,6 +26,7 @@ const config: SocketIoConfig = { url: 'http://localhost:8101', options: {} };
     RequestResponseComponent,
     ScanToFtpComponent,
     PrintComponent,
+    SendXmlComponent,
   ],
   imports: [
     BrowserModule,
