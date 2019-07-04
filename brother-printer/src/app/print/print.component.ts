@@ -4,7 +4,7 @@ import {Socket} from 'ngx-socket-io';
 import { ColorModeList, FeedTrayList, PageSizeList } from '../constant';
 import { FileItem, FileUploader, ParsedResponseHeaders } from 'ng2-file-upload';
 
-const URL = 'http://localhost:8101/';
+const URL = 'http://192.168.0.60:8101/';
 
 @Component({
   selector: 'app-print',
@@ -19,7 +19,8 @@ export class PrintComponent {
       ColorMode: 'Color',
       PaperSize: 'letter',
       NumCopies: '1',
-      FeedTray: 'Auto'
+      FeedTray: 'Auto',
+      JobFinAckUrl: 'http://192.168.0.60:8101/file/commandxml'
     },
     Authentication: {
       User: '',
@@ -32,7 +33,8 @@ export class PrintComponent {
       ColorMode: 'Color',
       PaperSize: 'letter',
       NumCopies: '1',
-      FeedTray: 'Auto'
+      FeedTray: 'Auto',
+      JobFinAckUrl: 'http://192.168.0.60:8101/file/commandxml'
     },
     Authentication: {
       User: '',
@@ -61,7 +63,7 @@ export class PrintComponent {
 
   onSuccessItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): any {
     const data = JSON.parse(response); // success server response
-    this.printRequest.Print.FilePath = URL + data[0].path;
+    this.printRequest.Print.FilePath = URL + data[0].path.replace('\\', '/');
   }
 
   send() {
