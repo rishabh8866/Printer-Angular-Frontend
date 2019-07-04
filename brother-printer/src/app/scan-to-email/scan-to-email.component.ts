@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpService} from '../service/http.service';
 import { Socket } from 'ngx-socket-io';
-import { DocSize, scanToEmailDefault } from '../constant';
+import { DocSize, ScanToEmailDefault } from '../constant';
 
 @Component({
   selector: 'app-scan-to-email',
@@ -9,8 +9,8 @@ import { DocSize, scanToEmailDefault } from '../constant';
   styleUrls: ['./scan-to-email.component.scss']
 })
 export class ScanToEmailComponent {
-public scanToEmailData = scanToEmailDefault;
-public defaultScanToEmail = scanToEmailDefault;
+public scanToEmailData = ScanToEmailDefault;
+public defaultScanToEmail = ScanToEmailDefault;
 public scanToEmailType = {
   TxProfiles: {
     Smtp: {

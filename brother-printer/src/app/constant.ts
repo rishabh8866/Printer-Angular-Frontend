@@ -22,7 +22,7 @@ export const SkipBlankPageSensitivity = ['Highest', 'Higher', 'Normal', 'Lower',
 export const ScanTray = ['FB', 'ADF', 'Auto'];
 export const RemoveBackground = ['High', 'Normal', 'Low', 'Off'];
 export const JpgQuality = ['High', 'Normal', 'Low', 'Off'];
-export const scanToEmailDefault = {
+export const ScanToEmailDefault = {
   TxProfiles: {
     Smtp: {
       Destination: 'rubingajera1@gmail.com',
