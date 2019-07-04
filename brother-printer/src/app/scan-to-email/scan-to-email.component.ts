@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpService} from '../service/http.service';
 import { Socket } from 'ngx-socket-io';
-import {DocSize} from "../constant";
+import { DocSize, scanToEmailDefault } from '../constant';
 
 @Component({
   selector: 'app-scan-to-email',
@@ -9,26 +9,41 @@ import {DocSize} from "../constant";
   styleUrls: ['./scan-to-email.component.scss']
 })
 export class ScanToEmailComponent {
-public scanToEmailData = {
-  Destination: '',
-  ScanTray: 'ADF',
-  ColorMode: 'Color',
-  Resolution: 'Normal',
-  FileType: 'PDF',
-  DocSize: 'Auto',
-  DuplexScanEnable: false,
-  NumSendPage: 1
+public scanToEmailData = scanToEmailDefault;
+public defaultScanToEmail = scanToEmailDefault;
+public scanToEmailType = {
+  TxProfiles: {
+    Smtp: {
+      Destination: 'text',
+      Subject: 'text',
+      MsgBody: 'text',
+      FileName: 'text',
+    }
+  },
+  FileNameFixed: 'checkbox',
+  ScanTray: 'select', 						// ScanTray
+  ColorMode: 'select', 						// ColorModeList
+  Resolution: 'select', 					// Resolution
+  DocSize: 'select', 						// DocSize
+  Density: 'select', 						// selectionList_1
+  Brightness: 'select', 					// selectionList_1
+  JpgQuality: 'select', 					// selectionList_2
+  FileType: 'select',						// FileType
+  SPdfPassword: 'text',
+  SinglePageFile: 'checkbox',
+  AdditionalAdfScan: 'checkbox',
+  ResumeAfterError: 'checkbox',
+  AutoDeskew: 'checkbox',
+  SkipBlankPage: 'checkbox',
+  SkipBlankPageSensitivity: 'select', 		// selectionList_1
+  RemoveBackground: 'select', 				// selectionList_2
+  DuplexScanEnable: 'checkbox',
+  ShortEdgeBinding: 'checkbox',
+  ColorDetectionAccuracyLevel: 'text',
+  GrayDetectionAccuracyLevel: 'text',
+  Margin: 'text',							// Margin
+  JobFinAckUrl: 'text'
 };
-public defaultScanToEmail = {
-  Destination: '',
-  ScanTray: 'ADF',
-  ColorMode: 'Color',
-  Resolution: 'Normal',
-  FileType: 'PDF',
-  DocSize: 'Auto',
-  DuplexScanEnable: false,
-  NumSendPage: 1
-}
 public scanTrayList = ['FB', 'ADF', 'Auto'];
 public colorModeList = ['Color', 'Gray', 'Mono', 'Auto'];
 public resolutionList = ['Normal', 'Low', 'High', '600', '400', '300', '200', '150', '100', '200x100', 'Auto'];
@@ -70,7 +85,6 @@ public noOfEmial = 1;
         FileType: this.scanToEmailData.FileType,
         DocSize: this.scanToEmailData.DocSize,
         DuplexScanEnable: this.scanToEmailData.DuplexScanEnable,
-        NumSendPage: this.scanToEmailData.NumSendPage,
       };
       this.http.post('/file/commandjson/add/', {ScanToEmail: data}).subscribe(() => {
         this.scanToEmailData = this.defaultScanToEmail;
