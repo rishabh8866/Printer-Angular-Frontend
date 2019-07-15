@@ -11,7 +11,7 @@ Second senario to add multiple checkbox
 <hr />
 <p>&nbsp;</p>
 <div class="row">
-  <div class="col-lg-8">
+  <div class="col-lg-6">
     <div class="form-check-inline">
       <label class="form-check-label">
         <input type="radio" class="form-check-input" name="canMultiSelect" [(ngModel)]="canMultiSelect" value="true">Multiple Select
@@ -22,8 +22,6 @@ Second senario to add multiple checkbox
         <input type="radio" class="form-check-input" name="canMultiSelect" [(ngModel)]="canMultiSelect" value="false" >Single Select
       </label>
     </div>
-  </div>
-  <div class="col-lg-8">
     <div class="form-group" *ngFor="let number of numberReturn(noOfEmial)">
       <div class="row">
         <div class="col-sm-4">
