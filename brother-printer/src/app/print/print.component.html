@@ -2,7 +2,7 @@
 <h3 class="text-center"><strong>Print</strong></h3>
 <hr />
 <p>&nbsp;</p>  <div class="row">
-  <div class="col-lg-8">
+  <div class="col-sm-6">
     <div class="form-check-inline">
       <label class="form-check-label">
         <input type="checkbox" class="form-check-input" name="upload" [(ngModel)]="canUpload" value="true">Upload
@@ -13,8 +13,6 @@
         <input type="checkbox" class="form-check-input" name="authentication" [(ngModel)]="canAuthenticate" value="false" >Authentication
       </label>
     </div>
-  </div>
-  <div class="col-sm-8">
     <div class="form-group" *ngIf="canUpload">
       <div class="row">
 
@@ -29,6 +27,7 @@
                class="well my-drop-zone">
             Base drop zone
           </div>
+          <input type="file" ng2FileSelect [uploader]="uploader" />
         </div>
 
         <div class="col-md-7" style="margin-bottom: 40px">
