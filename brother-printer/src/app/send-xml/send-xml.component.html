@@ -1,0 +1,23 @@
+<p>&nbsp;</p><hr />
+<h3 class="text-center"><strong>XML</strong></h3>
+<hr />
+<p>&nbsp;</p>  <div class="row">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-4">
+          <label>Paste XML</label>
+        </div>
+        <div class="col-sm-8">
+          <textarea [(ngModel)]="xml" class="form-control" rows="10"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-outline-primary float-right" (click)="send()">Send</button>
+      <button class="btn btn-outline-primary float-right reset" (click)="reset()">Reset</button>
+    </div>
+  </div>
+
+  <app-request-response [request]="xml" [response]="result"></app-request-response>
+</div>
