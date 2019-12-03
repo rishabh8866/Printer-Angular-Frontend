@@ -58,39 +58,41 @@ export const ScanToEmailDefault = {
 export const ScanToFTPDefault = {
   TxProfiles: {
     Ftp: {
-      HostAddress: '',
-      Host: '',
-      StoreDir: '',
-      FileName: '',
-      User: '',
-      Password: '',
-      PassiveMode: false,
-      CertificationCheck: false,
-      PortNum: 65535,
-      FTPSMode: 'FTPSMode',
+      FtpParams: {
+        HostAddress: '',
+        Host: '',
+        StoreDir: '',
+        FileName: '',
+        User: '',
+        Password: '',
+        PassiveMode: false,
+        CertificationCheck: false,
+        PortNum: 65535,
+        FTPSMode: 'FTPSMode',
+      }
     }
   },
-  FileNameFixed: true,
-  ScanTray: 'Auto', 						// ScanTray
-  ColorMode: 'Color', 						// ColorModeList
-  Resolution: 'Normal', 					// Resolution
-  DocSize: 'Auto', 						// DocSize
-  Density: 'Higher', 						// selectionList_1
-  Brightness: 'Normal', 					// selectionList_1
-  JpgQuality: '', 					// selectionList_2
-  FileType: 'JPEG',						// FileType
-  SPdfPassword: '',
-  SinglePageFile: true,
-  AdditionalAdfScan: true,
-  ResumeAfterError: true,
-  AutoDeskew: true,
-  SkipBlankPage: true,
-  SkipBlankPageSensitivity: '', 		// selectionList_1
-  RemoveBackground: '', 				// selectionList_2
-  DuplexScanEnable: true,
-  ShortEdgeBinding: true,
-  ColorDetectionAccuracyLevel: '',
-  GrayDetectionAccuracyLevel: '',
-  Margin: '',							// Margin
-  JobFinAckUrl: ''
+//  FileNameFixed: true,
+//  ScanTray: 'Auto', 						// ScanTray
+//  ColorMode: 'Color', 						// ColorModeList
+//  Resolution: 'Normal', 					// Resolution
+//  DocSize: 'Auto', 						// DocSize
+//  Density: 'Higher', 						// selectionList_1
+//  Brightness: 'Normal', 					// selectionList_1
+//  JpgQuality: '', 					// selectionList_2
+//  FileType: 'JPEG',						// FileType
+//  SPdfPassword: '',
+//  SinglePageFile: true,
+//  AdditionalAdfScan: true,
+//  ResumeAfterError: true,
+//  AutoDeskew: true,
+//  SkipBlankPage: true,
+//  SkipBlankPageSensitivity: '', 		// selectionList_1
+//  RemoveBackground: '', 				// selectionList_2
+//  DuplexScanEnable: true,
+//  ShortEdgeBinding: true,
+//  ColorDetectionAccuracyLevel: '',
+//  GrayDetectionAccuracyLevel: '',
+//  Margin: '',							// Margin
+//  JobFinAckUrl: ''
 };
