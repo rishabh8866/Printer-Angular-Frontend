@@ -19,7 +19,7 @@
   "homepage": "https://github.com/rcdstech/Printer#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "chai": "^4.2.0",
